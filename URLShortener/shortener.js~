@@ -2,10 +2,10 @@ var firebase = require('firebase');
 const r = require('convert-radix64');
 
 var config = {
-    apiKey: "",
-    authDomain: "",
-    databaseURL: "",
-    storageBucket: "",
+    apiKey: "AIzaSyDvKUSBHzQAOPq14DsXm_yJpxwWLDi59Z4",
+    authDomain: "url-shortener-afca5.firebaseapp.com",
+    databaseURL: "https://url-shortener-afca5.firebaseio.com",
+    storageBucket: "url-shortener-afca5.appspot.com",
 };
 
 firebase.initializeApp(config);
