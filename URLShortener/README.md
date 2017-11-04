@@ -1,7 +1,7 @@
 URL Shortener
 =============
 
-<a href="https://github.com/rishz/URL-Shortener/blob/master/LICENSE"><img src="https://img.shields.io/badge/License-MIT-red.svg" alt="license"/></a>
+<a href="https://github.com/shreyansh26/Weekend-Projects/blob/master/LICENSE"><img src="https://img.shields.io/badge/License-MIT-red.svg" alt="license"/></a>
 
 A URL Shortener using NodeJS and synced with Firebase database.
 
