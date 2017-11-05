@@ -1,5 +1,6 @@
 var firebase = require('firebase');
 const r = require('convert-radix64');
+const hasha = require('hasha');
 
 var config = {
     apiKey: "",
@@ -9,12 +10,10 @@ var config = {
 };
 
 firebase.initializeApp(config);
-
-const hasha = require('hasha');
 const hashMap = {};
 
 module.exports = {
-  shorten: function (url) {
+  shorten: (url) => {
     hash = hasha(url, {encoding: 'base64', algorithm: 'md5'});
     hash = hash.slice(0, 4);  // For 4 character shortened URL
     hash = hash.replace('/', '-');
@@ -25,18 +24,26 @@ module.exports = {
     return hash;
   },
 
-  expand: function (shortcode) {
-    var ref = firebase.database().ref('/'+shortcode);
-    ref.once('child_added').then(function (snapshot) {
-      let username = snapshot.val().url;
-      console.log("converted value =  "+username);
-      return hashMap[shortcode];
+  expand: (shortcode) => {
+    return new Promise(function(resolve, reject) {
+      if (shortcode === undefined) {
+        reject(null);
+      }
+      var ref = firebase.database().ref('/'+r.from64(shortcode));
+      ref.once('value').then(function(snapshot) {
+        val = snapshot.val();
+        if(val) {
+          let url = val.url;
+          resolve(url);
+        } else {
+          resolve(hashMap[shortcode]);
+        }
+      });
     });
   }
 };
 
 function writeUserData(url, shortcode, code) {
-  console.log('writedata');
   firebase.database().ref('/'+shortcode).set({
     code: code,
     url: url
