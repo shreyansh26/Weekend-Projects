@@ -9,6 +9,7 @@
   "author": "shreyansh26",
   "license": "ISC",
   "dependencies": {
+    "mongoose": "^4.10.8",
     "puppeteer": "^0.12.0"
   }
 }
