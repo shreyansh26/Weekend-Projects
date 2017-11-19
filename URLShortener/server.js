@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const openurl = require('openurl')
 
 const shortener = require('./shortener');
 const port = 8080;
@@ -13,7 +12,7 @@ app.use(express.static("static"));
 app.get('/:shortcode', (req, res) => {
   shortener.expand(req.params.shortcode)
     .then((url) => {
-      console.log(url);
+      //console.log(url);
       res.redirect(url);
     })
     .catch((error) => {
