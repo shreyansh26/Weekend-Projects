@@ -8,13 +8,13 @@ Features
 2. Open files
 3. Copy/Cut selected text
 4. Paste text from clipboard
-5. CLear text
+5. Clear text
 6. Word count
-7. Commom keybindings like  
+7. Common keybindings like  
    * Ctrl-c - Copy
    * Ctrl-v - Paste
    * Ctrl-x - Cut
    * Ctrl-z - Undo
    * Ctrl-a - Select all
-   * Ctrl-s - Save
-   * Ctrl-o - Open
+   * Ctrl-s - Save file
+   * Ctrl-o - Open file
