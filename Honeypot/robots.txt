@@ -1,0 +1,4 @@
+#robots.txt for my website
+
+User-agent: *
+Disallow: /backdoor.php
