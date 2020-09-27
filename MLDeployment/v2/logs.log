@@ -1,0 +1,108 @@
+INFO:uvicorn.error:Started server process [19108]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [19108]
+INFO:uvicorn.error:Started server process [18096]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://127.0.0.1:8001 (Press CTRL+C to quit)
+ERROR:uvicorn.error:Exception in ASGI application
+Traceback (most recent call last):
+  File "c:\python38\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 388, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "c:\python38\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 45, in __call__
+    return await self.app(scope, receive, send)
+  File "c:\python38\lib\site-packages\fastapi\applications.py", line 179, in __call__
+    await super().__call__(scope, receive, send)
+  File "c:\python38\lib\site-packages\starlette\applications.py", line 111, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "c:\python38\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc from None
+  File "c:\python38\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "c:\python38\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc from None
+  File "c:\python38\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "c:\python38\lib\site-packages\starlette\routing.py", line 566, in __call__
+    await route.handle(scope, receive, send)
+  File "c:\python38\lib\site-packages\starlette\routing.py", line 227, in handle
+    await self.app(scope, receive, send)
+  File "c:\python38\lib\site-packages\starlette\routing.py", line 41, in app
+    response = await func(request)
+  File "c:\python38\lib\site-packages\fastapi\routing.py", line 182, in app
+    raw_response = await run_endpoint_function(
+  File "c:\python38\lib\site-packages\fastapi\routing.py", line 135, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "c:\python38\lib\site-packages\starlette\concurrency.py", line 34, in run_in_threadpool
+    return await loop.run_in_executor(None, func, *args)
+  File "c:\python38\lib\concurrent\futures\thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File ".\models\routers\iris_classifier_router.py", line 9, in classify_iris
+    iris_classifier = IrisClassifier()
+  File ".\models\model.py", line 10, in __init__
+    self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(iris.data, iris.target, test_size=0.1)
+NameError: name 'iris' is not defined
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [18096]
+INFO:uvicorn.error:Started server process [2892]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://127.0.0.1:8001 (Press CTRL+C to quit)
+ERROR:uvicorn.error:Exception in ASGI application
+Traceback (most recent call last):
+  File "c:\python38\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 388, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "c:\python38\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 45, in __call__
+    return await self.app(scope, receive, send)
+  File "c:\python38\lib\site-packages\fastapi\applications.py", line 179, in __call__
+    await super().__call__(scope, receive, send)
+  File "c:\python38\lib\site-packages\starlette\applications.py", line 111, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "c:\python38\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc from None
+  File "c:\python38\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "c:\python38\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc from None
+  File "c:\python38\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "c:\python38\lib\site-packages\starlette\routing.py", line 566, in __call__
+    await route.handle(scope, receive, send)
+  File "c:\python38\lib\site-packages\starlette\routing.py", line 227, in handle
+    await self.app(scope, receive, send)
+  File "c:\python38\lib\site-packages\starlette\routing.py", line 41, in app
+    response = await func(request)
+  File "c:\python38\lib\site-packages\fastapi\routing.py", line 182, in app
+    raw_response = await run_endpoint_function(
+  File "c:\python38\lib\site-packages\fastapi\routing.py", line 135, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "c:\python38\lib\site-packages\starlette\concurrency.py", line 34, in run_in_threadpool
+    return await loop.run_in_executor(None, func, *args)
+  File "c:\python38\lib\concurrent\futures\thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File ".\models\routers\iris_classifier_router.py", line 9, in classify_iris
+    iris_classifier = IrisClassifier()
+  File ".\models\model.py", line 12, in __init__
+    self.clf = self.train_model()
+  File ".\models\model.py", line 20, in train_model
+    return AdaBoostClassifier(n_estimators=5).fit(X_train, y_train)
+NameError: name 'X_train' is not defined
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [2892]
+INFO:uvicorn.error:Started server process [10576]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://127.0.0.1:8001 (Press CTRL+C to quit)
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [10576]
