@@ -22,7 +22,12 @@ async def get_predictions(iris: Iris):
     try:
         data = dict(iris)['data']
         print(data)
-        prediction = model.predict(data).tolist()
+        iris_types = {
+            0: 'setosa',
+            1: 'versicolor',
+            2: 'virginica'
+        }
+        prediction = list(map(lambda x: iris_types[x], model.predict(data).tolist()))
         log_proba = model.predict_log_proba(data).tolist()
         return {"prediction": prediction, "log_proba": log_proba}
     except:
