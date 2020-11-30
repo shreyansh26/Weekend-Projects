@@ -29,11 +29,11 @@ Make a simple Iris classifier ML model and use FastAPI to make an API for it. De
   ```
   Head to http://localhost:8000/docs
   ```
-4. Docker image
+5. Docker image
   ```
   docker build -t iris-ml .
   ```
-5. Start Docker container
+6. Start Docker container
   ```
   docker run -d -p 8000:8000 --name iris-api iris-ml
   ```
