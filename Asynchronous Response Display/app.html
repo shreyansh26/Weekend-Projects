@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Asynchronous Response Display</title>
+</head>
+<body>
+    <form id="queryForm">
+        <label for="queryInput">Enter your query:</label>
+        <input type="text" id="queryInput" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="response1"></div>
+    <div id="response2"></div>
+
+    <script>
+        async function fetchData(url, onResponse) {
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                onResponse(data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        document.getElementById('queryForm').addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent form submission
+
+            const queryInput = document.getElementById('queryInput');
+            const query = queryInput.value.trim();
+
+            if (query) {
+                document.getElementById('response1').textContent = 'Waiting for result...';
+                document.getElementById('response2').textContent = 'Waiting for result...';
+
+                const url1 = `http://localhost:9600/query1?query=${query}`;
+                const url2 = `http://localhost:9600/query2?query=${query}`;
+
+                fetchData(url1, data => {
+                    document.getElementById('response1').textContent = data.answer;
+                });
+
+                fetchData(url2, data => {
+                    document.getElementById('response2').textContent = data.answer;
+                });
+            } else {
+                alert('Please enter a valid query.');
+            }
+        });
+    </script>
+</body>
+</html>
